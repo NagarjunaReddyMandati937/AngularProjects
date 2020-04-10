@@ -2,7 +2,7 @@
     <p>Department List </p>
     <div>
         <ul class="items">
-            <li *ngFor="let department of departments">
+            <li (click)="onSelect(department)" *ngFor="let department of departments">
                 <span class="badge">{{department.id}}</span>
                 {{department.name}}
             </li>
