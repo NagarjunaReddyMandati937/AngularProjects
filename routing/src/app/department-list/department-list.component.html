@@ -1,1 +1,11 @@
-<p>department-list works!</p>
+<div class="container">
+    <p>Department List </p>
+    <div>
+        <ul class="items">
+            <li *ngFor="let department of departments">
+                <span class="badge">{{department.id}}</span>
+                {{department.name}}
+            </li>
+        </ul>
+    </div>
+</div>

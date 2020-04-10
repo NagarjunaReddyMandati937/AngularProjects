@@ -1,1 +1,11 @@
-<p>employee-list works!</p>
+<div class="container">
+    <p>Employee List </p>
+    <div>
+        <ul class="items">
+            <li *ngFor="let employee of employees">
+                <span class="badge">{{employee.id}}</span>
+                {{employee.name}}- {{employee.age}}
+            </li>
+        </ul>
+    </div>
+</div>

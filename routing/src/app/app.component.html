@@ -1,8 +1,11 @@
-<div style="text-align: center;">
-  <h1 style="color: red;">Routing and Navigation</h1>
+<div class="container">
+  <div style="text-align: center;">
+    <h1 style="color: red;">Routing and Navigation</h1>
+    <hr>
+  </div><br><br>
+  <nav>
+    <input routerLink="/departments" routerLinkActive="active" type="button" value="Departments">
+    &nbsp;&nbsp; <input routerLink="/employees" routerLinkActive="active" type="button" value="Employees">
+  </nav><br><br>
+  <router-outlet></router-outlet>
 </div>
-<nav>
-  <a routerLink="/departments" routerLinkActive="active">Departments</a>
-  <a routerLink="/employees" routerLinkActive="active">Employees</a>
-</nav>
-<router-outlet></router-outlet>
