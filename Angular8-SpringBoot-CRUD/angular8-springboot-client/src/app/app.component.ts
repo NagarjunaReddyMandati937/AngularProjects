@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular 8 + Spring Boot + MySql';
+  name = 'N.R Technologis'
 }

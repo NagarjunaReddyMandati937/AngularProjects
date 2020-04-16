@@ -12,30 +12,44 @@ import javax.persistence.Table;
 public class Employee {
 
 	private long id;
+	private String designation;
 	private String firstName;
 	private String lastName;
 	private String emailId;
 	private String location;
 	private long cell;
+	private String skills;
 
 	public Employee() {
 
 	}
 
-	public Employee(String firstName, String lastName, String emailId, String location, long cell) {
-
+	public Employee(String designation, String firstName, String lastName, String emailId, String location, long cell,
+			String skills) {
+		this.designation = designation;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
 		this.location = location;
 		this.cell = cell;
+		this.skills = skills;
 	}
+
+//	public Employee(String firstName, String lastName, String emailId, String location, long cell) {
+//
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.emailId = emailId;
+//		this.location = location;
+//		this.cell = cell;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -44,6 +58,7 @@ public class Employee {
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -52,6 +67,7 @@ public class Employee {
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -60,6 +76,7 @@ public class Employee {
 	public String getEmailId() {
 		return emailId;
 	}
+
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
@@ -71,6 +88,7 @@ public class Employee {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 	@Column(name = "cell_number", nullable = false)
 	public long getCell() {
 		return cell;
@@ -80,10 +98,27 @@ public class Employee {
 		this.cell = cell;
 	}
 
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-				+ ", location=" + location + ", cell=" + cell + "]";
+		return "Employee [id=" + id + ", designation=" + designation + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", emailId=" + emailId + ", location=" + location + ", cell=" + cell + ", skills=" + skills
+				+ "]";
 	}
-	
+
 }
