@@ -21,7 +21,10 @@ export class EmployeeListComponent implements OnInit {
   }
 
   reloadData() {
-    this.employees = this.employeeService.getEmployeesList();
+  this.employeeService.getEmployeesList().subscribe(data => {
+    this.employees = data;
+    console.log(this.employees)
+  });
   }
 
   deleteEmployee(id: number) {

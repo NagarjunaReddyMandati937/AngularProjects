@@ -26,14 +26,16 @@ export class CreateEmployeeComponent implements OnInit {
 
   save() {
     this.employeeService.createEmployee(this.employee)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => {
+        this.gotoList();
+        console.log(data), error => console.log(error);
+      })
     this.employee = new Employee();
-    this.gotoList();
   }
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
   gotoList() {
