@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <img src="assets/pic3.jpeg" class="rounded-circle" style="width: 90px;" alt="Logo">&nbsp;&nbsp;&nbsp;<h2
+    style="text-align: center; color:seashell">{{name | uppercase}}</h2>
+  <!-- Links --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <ul class="navbar-nav" style="text-align: center;">
+    <li class="nav-item">
+      <a routerLink="employees" class="nav-link" routerLinkActive="active">Employee List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="container">
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>
+  <div class="card">
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <img src="assets/img.jpeg" class="rounded-circle" style="width: 70px;" alt="Logo">&nbsp;&nbsp;<span>All Rights
+      Reserved 2020 @Nagarjuna Reddy
+      Mandati</span>
+    &nbsp;&nbsp;<img src="assets/img.jpeg" class="rounded-circle" style="width: 70px;" alt="Logo"></div>
+</footer>
