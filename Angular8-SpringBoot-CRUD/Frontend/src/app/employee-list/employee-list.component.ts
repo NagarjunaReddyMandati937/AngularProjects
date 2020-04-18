@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
-
+  public ser;
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
 
@@ -21,10 +21,10 @@ export class EmployeeListComponent implements OnInit {
   }
 
   reloadData() {
-  this.employeeService.getEmployeesList().subscribe(data => {
-    this.employees = data;
-    console.log(this.employees)
-  });
+    this.employeeService.getEmployeesList().subscribe(data => {
+      this.employees = data;
+      console.log(this.employees)
+    });
   }
 
   deleteEmployee(id: number) {
@@ -37,11 +37,18 @@ export class EmployeeListComponent implements OnInit {
         error => console.log(error));
   }
 
-  employeeDetails(id: number){
+  employeeDetails(id: number) {
     this.router.navigate(['details', id]);
   }
 
-  updateEmployee(id: number){
+  updateEmployee(id: number) {
     this.router.navigate(['update', id]);
+  }
+  onSearch(employee){
+    this.employeeService.getSearchedEmployee(this.ser).subscribe(data =>
+      { this.employees = data;
+
+      });
+
   }
 }

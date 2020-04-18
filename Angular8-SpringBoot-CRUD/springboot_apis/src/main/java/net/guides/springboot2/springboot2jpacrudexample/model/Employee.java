@@ -35,15 +35,6 @@ public class Employee {
 		this.skills = skills;
 	}
 
-//	public Employee(String firstName, String lastName, String emailId, String location, long cell) {
-//
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.emailId = emailId;
-//		this.location = location;
-//		this.cell = cell;
-//	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {

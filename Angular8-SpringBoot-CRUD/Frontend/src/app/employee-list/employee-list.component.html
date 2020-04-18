@@ -2,7 +2,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-
+<input type="text" style="width: 900px;height: 40px;" placeholder="Search" name="search" [(ngModel)]="ser">
+&nbsp;<input type="submit" value="Search" style="width: 150px;height: 40px;" 
+  (click)="onSearch()"  class="btn btn-success">
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 style="text-align: center;">Employee List</h2>
@@ -20,20 +22,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees">
+        <tr *ngFor="let employee of employees" (click)="employeeDetails(employee.id)">
           <td>{{employee.id}}</td>
           <td>{{employee.designation}}</td>
           <td>{{employee.firstName}}</td>
           <td>{{employee.lastName}}</td>
           <td>{{employee.emailId}}</td>
           <td>
-            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"><i class="material-icons">delete</i></button>
-              <button (click)="updateEmployee(employee.id)" class="btn btn-warning" style="margin-left: 10px"><i class="material-icons" style="font-size:24px">edit</i></button>
-              <button (click)="employeeDetails(employee.id)" class="btn btn-success" style="margin-left: 10px">Details</button>
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"><i
+                class="material-icons">delete</i></button>
+            <button (click)="updateEmployee(employee.id)" class="btn btn-warning" style="margin-left: 10px"><i
+                class="material-icons" style="font-size:24px">edit</i></button>
+            <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-success"
+              style="margin-left: 10px">Details</button> -->
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
