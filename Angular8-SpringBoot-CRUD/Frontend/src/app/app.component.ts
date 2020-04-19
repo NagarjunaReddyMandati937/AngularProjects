@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular 8 + Spring Boot + MySql';
+  title = 'Full Stack Web Application Using Rest APIs';
   name = 'N.R Technologis'
 }
