@@ -23,56 +23,71 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.guides.springboot2.springboot2jpacrudexample.exception.ResourceNotFoundException;
 import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
+import net.guides.springboot2.springboot2jpacrudexample.model.User;
 import net.guides.springboot2.springboot2jpacrudexample.repository.EmployeeRepository;
+import net.guides.springboot2.springboot2jpacrudexample.service.EmployeeService;
+import net.guides.springboot2.springboot2jpacrudexample.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
+//	@Autowired
+//	private EmployeeRepository employeeRepository;
+	
 	@Autowired
-	private EmployeeRepository employeeRepository;
-
+	private EmployeeService service;
+	
+	@Autowired
+	private UserService uservice;
+	
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
-		return employeeRepository.findAll();
+		return service.findAll();
 	}
 
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)
 			throws ResourceNotFoundException {
-		Employee employee = employeeRepository.findById(employeeId)
+		Employee employee = service.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 		return ResponseEntity.ok().body(employee);
 	}
 
 	@PostMapping("/employees")
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
-		return employeeRepository.save(employee);
+		return service.save(employee);
+	}
+	
+	@PostMapping("/employees/users")
+	public User createUser(@Valid @RequestBody User user) {
+		return uservice.save(user);
 	}
 
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
 			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
-		Employee employee = employeeRepository.findById(employeeId)
+		Employee employee = service.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 		employee.setDesignation(employeeDetails.getDesignation());
+		employee.setUsername(employeeDetails.getUsername());
 		employee.setCell(employeeDetails.getCell());
 		employee.setLocation(employeeDetails.getLocation());
 		employee.setSkills(employeeDetails.getSkills());
 		employee.setEmailId(employeeDetails.getEmailId());
 		employee.setLastName(employeeDetails.getLastName());
 		employee.setFirstName(employeeDetails.getFirstName());
-		final Employee updatedEmployee = employeeRepository.save(employee);
+		final Employee updatedEmployee = service.save(employee);
 		return ResponseEntity.ok(updatedEmployee);
 	}
 
 	@DeleteMapping("/employees/{id}")
 	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)
 			throws ResourceNotFoundException {
-		Employee employee = employeeRepository.findById(employeeId)
+		Employee employee = service.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 
-		employeeRepository.delete(employee);
+		service.delete(employee);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
@@ -82,7 +97,7 @@ public class EmployeeController {
 	public List searchByFirstnameOrLastname(@RequestParam(name = "firstName") String firstName,
 			Model model) {
 		//model.addAttribute("house", houseRepo.findByCityOrType(city, type));
-		List<Employee> EmployeeSer = employeeRepository.findByFirstnameOrLastname(firstName);
+		List<Employee> EmployeeSer = service.findByFirstnameOrLastname(firstName);
 		return EmployeeSer;
 
 	}

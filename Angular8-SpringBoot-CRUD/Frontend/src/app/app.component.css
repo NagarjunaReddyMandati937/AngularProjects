@@ -17,6 +17,12 @@ body {
     position: fixed;
     width: 100%;
   }
+  .footer {
+   
+    background-color:maroon;
+    position: fixed;
+    width: 100%;
+  }
   
   .sidebar a {
     display: block;
