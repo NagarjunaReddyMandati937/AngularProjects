@@ -3,37 +3,45 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Designation</label>
-      <input type="text" class="form-control" id="designation" required [(ngModel)]="employee.designation" name="designation">
+      <input type="text" class="form-control" 
+      placeholder="Designation" id="designation" required [(ngModel)]="employee.designation" name="designation">
     </div>
     <div class="form-group">
       <label for="name">Username</label>
-      <input type="text" class="form-control" id="username" required [(ngModel)]="employee.username" name="username">
+      <input type="text" class="form-control" 
+      placeholder="Username" id="username" required [(ngModel)]="employee.username" name="username">
     </div>
     <div class="form-group">
       <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+      <input type="text" class="form-control" 
+      placeholder="firstName" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
     </div>
 
     <div class="form-group">
       <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
+      <input type="text" class="form-control" 
+      placeholder="lastName" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
     </div>
 
     <div class="form-group">
       <label for="name">E-Mail</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+      <input type="text" class="form-control" 
+      placeholder="Email" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
     </div>
     <div class="form-group">
       <label for="name">Location</label>
-      <input type="text" class="form-control" id="location" required [(ngModel)]="employee.location" name="location">
+      <input type="text" class="form-control"
+      placeholder="Location" id="location" required [(ngModel)]="employee.location" name="location">
     </div>
     <div class="form-group">
       <label for="name">Cell Number</label>
-      <input type="tel" class="form-control" id="cell" required [(ngModel)]="employee.cell" name="cell">
+      <input type="tel" class="form-control"
+      placeholder="Cell" id="cell" required [(ngModel)]="employee.cell" name="cell">
     </div>
     <div class="form-group">
       <label for="name">Skills</label>
-      <input type="tel" class="form-control" id="skills" required [(ngModel)]="employee.skills" name="skills">
+      <input type="tel" class="form-control" 
+      placeholder="Skills" id="skills" required [(ngModel)]="employee.skills" name="skills">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>

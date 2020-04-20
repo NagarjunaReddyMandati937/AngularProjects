@@ -1,42 +1,82 @@
 <h3>Create an Account</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form id="form_login" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
     <div class="form-group">
       <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
+      <input type="text" class="form-control" placeholder="firstName" id="firstName" required
+        formControlName="firstName" [(ngModel)]="user.firstName">
+      <div *ngIf="signupForm.get('firstName').invalid&&
+      signupForm.get('firstName').touched">
+        <small *ngIf="signupForm.get('firstName').errors?.required" class="text-danger">FirstName is
+          requied</small>
+        <small *ngIf="signupForm.get('firstName').errors?.minlength" class="text-danger">FirstName
+          must be
+          at least 3 characters</small>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
+      <input type="text" class="form-control" id="lastName" placeholder="lastName" required formControlName="lastName"
+        [(ngModel)]="user.lastName">
+      <div *ngIf="signupForm.get('lastName').invalid&&
+      signupForm.get('username').touched">
+        <small *ngIf="signupForm.get('lastName').errors?.required" class="text-danger">LastName is
+          requied</small>
+        <small *ngIf="signupForm.get('lastName').errors?.minlength" class="text-danger">LastName
+          must be
+          at least 3 characters</small>
+      </div>
     </div>
-
     <div class="form-group">
       <label for="name">E-Mail</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
+      <input type="text" placeholder="Email" formControlName="email" class="form-control" [(ngModel)]="user.email">
+      <small *ngIf="signupForm.get('email').errors?.required && signupForm.get('email').touched"
+        class="text-danger">Email is
+        requied</small>
     </div>
     <div class="form-group">
       <label for="name">Username</label>
-      <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+      <input type="text" placeholder="Username" formControlName="username" [(ngModel)]="user.username"
+        class="form-control">
+      <div *ngIf="signupForm.get('username').invalid&&
+      signupForm.get('username').touched">
+        <small *ngIf="signupForm.get('username').errors?.required" class="text-danger">Username is
+          requied</small>
+        <small *ngIf="signupForm.get('username').errors?.minlength" class="text-danger">Username
+          must be
+          at least 3 characters</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="name">Password</label>
-      <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+      <input type="password" placeholder="Password" formControlName="password" [(ngModel)]="user.password"
+        class="form-control">
     </div>
     <div class="form-group">
       <label for="name">Confirm-Password</label>
-      <input type="password" class="form-control" id="confirmPassword" required [(ngModel)]="user.confirmPassword"
-        name="confirmPassword">
+      <input [class.is-invalid]="signupForm.errors?.misMatch" placeholder="ConfirmPassword"
+        formControlName="confirmPassword" type="password" [(ngModel)]="user.confirmPassword" class="form-control"><br>
+      <small class="text-danger" *ngIf="signupForm.errors?.misMatch">Passwords do not match</small>
     </div>
     <div class="form-group">
-      <label for="name">Cell Number</label>
-      <input type="password" class="form-control" id="cell" required [(ngModel)]="user.cell" name="cell">
+      <label for="name">Mobile Number</label>
+      <input type="number" placeholder="Mobile Number" formControlName="cell" [(ngModel)]="user.cell"
+        class="form-control">
+      <div *ngIf="signupForm.get('cell').invalid&&
+  signupForm.get('cell').touched">
+        <small *ngIf="signupForm.get('cell').errors?.required" class="text-danger">Mobile Number
+          is
+          requied</small>
+        <small *ngIf="signupForm.get('cell').errors?.minlength" class="text-danger">Mobile Number
+          must
+          be 10
+          Digits</small>
+        <small *ngIf="signupForm.get('cell').errors?.maxlength" class="text-danger">Mobile Number
+          not
+          more than 10 digits</small></div>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success">Submit</button>
   </form>
 </div>
-
-<!-- <div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <button class="btn btn-success" (click)="newEmployee()">Add</button>
-</div> -->

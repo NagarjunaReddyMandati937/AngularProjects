@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { PasswordValidator } from '../shared/Password.Validator';
 
 @Component({
   selector: 'app-signup',
@@ -9,14 +11,26 @@ import { UserService } from '../user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user: User = new User();
-  submitted = false;
+  signupForm: FormGroup;
 
   constructor(private userService: UserService,
-    private router: Router) { }
+    private router: Router,private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.signupForm = this.fb.group({
+      firstName:['', [Validators.required, Validators.minLength(3)]],
+      lastName:['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: [''],
+      confirmPassword: [''],
+      cell: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+    }, { validator: PasswordValidator });
+
+
   }
+  user: User = new User();
+  submitted = false;
 
   newUser(): void {
     this.submitted = false;
@@ -33,6 +47,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.signupForm.value);
     this.submitted = true;
     this.save();
     window.alert('User Account Created');
