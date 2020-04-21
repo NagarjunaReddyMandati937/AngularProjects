@@ -3,8 +3,10 @@ h2{
     text-align: center;
 }
 td{
-    background-color: cyan;
+    background-color:darkred;
+    color:white;
 }
 th{
-    background-color: yellow;
+    background-color: blue;
+    color:white;
 }

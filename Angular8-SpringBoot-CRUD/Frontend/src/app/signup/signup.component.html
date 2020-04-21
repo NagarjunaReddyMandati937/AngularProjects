@@ -21,7 +21,7 @@
       <input type="text" class="form-control" id="lastName" placeholder="lastName" required formControlName="lastName"
         [(ngModel)]="user.lastName">
       <div *ngIf="signupForm.get('lastName').invalid&&
-      signupForm.get('username').touched">
+      signupForm.get('lastName').touched">
         <small *ngIf="signupForm.get('lastName').errors?.required" class="text-danger">LastName is
           requied</small>
         <small *ngIf="signupForm.get('lastName').errors?.minlength" class="text-danger">LastName
