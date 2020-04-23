@@ -1,14 +1,14 @@
 <div class="sidebar" style="text-align: center;"><br><br><br><br><br><br>
   <img src="assets/pic3.jpeg" class="rounded-circle" style="width: 120px;" alt="Logo">
   <br><br> <a class="active" routerLink="home" routerLinkActive="active">Home</a>
-  <a routerLink="aboutus" routerLinkActive="active">About Us</a>
-  <a routerLink="careers" routerLinkActive="active">Careers</a>
-  <a routerLink="awards" routerLinkActive="active">Awards & Achievements</a>
-  <a routerLink="technologies" routerLinkActive="active">Technologies</a>
-  <a routerLink="solutions" routerLinkActive="active">Solutions</a>
-  <a routerLink="contactus" routerLinkActive="active">Contact Us</a>
-  <a routerLink="signup" routerLinkActive="active">SignUp</a>
-  <a routerLink="login" routerLinkActive="active">Login</a>
+  <a *ngIf="isLoggedin()" routerLink="aboutus" routerLinkActive="active">About Us</a>
+  <a *ngIf="isLoggedin()" routerLink="careers" routerLinkActive="active">Careers</a>
+  <a *ngIf="isLoggedin()" routerLink="awards" routerLinkActive="active">Awards & Achievements</a>
+  <a *ngIf="isLoggedin()" routerLink="technologies" routerLinkActive="active">Technologies</a>
+  <a *ngIf="isLoggedin()" routerLink="solutions" routerLinkActive="active">Solutions</a>
+  <a *ngIf="isLoggedin()" routerLink="contactus" routerLinkActive="active">Contact Us</a>
+  <a *ngIf="!isLoggedin()" routerLink="signup" routerLinkActive="active">SignUp</a>
+  <a *ngIf="!isLoggedin()" routerLink="login" routerLinkActive="active">Login</a>
 </div>
 
 <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
@@ -19,16 +19,16 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <ul class="navbar-nav" style="text-align: center;">
     <li class="nav-item">
-      <a routerLink="employees" class="nav-link" routerLinkActive="active">Employee List</a>
+      <a *ngIf="isLoggedin()" routerLink="employees" class="nav-link" routerLinkActive="active">Employee List</a>
     </li>
     <li class="nav-item">
-      <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
+      <a *ngIf="isLoggedin()" routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </li>
     <li class="nav-item">
-      <a routerLink="signup" class="nav-link" routerLinkActive="active">Sign Up</a>
+      <a *ngIf="!isLoggedin()" routerLink="signup" class="nav-link" routerLinkActive="active">Sign Up</a>
     </li>
     <li class="nav-item">
-      <a routerLink="login" class="nav-link" routerLinkActive="active">Login</a>
+      <a *ngIf="!isLoggedin()" routerLink="login" class="nav-link" routerLinkActive="active">Login</a>
     </li>
   </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

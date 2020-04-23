@@ -19,4 +19,10 @@ export class LoginComponent implements OnInit {
         password: ['', Validators.required],
       })
   }
+onSubmit(){
+  console.log(this.loginForm);
+  sessionStorage.setItem('user',JSON.stringify(this.loginForm.value));
+  this.router.navigate(['employees']);
+
+}
 }

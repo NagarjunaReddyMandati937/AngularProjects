@@ -21,6 +21,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { HeaderComponent } from './landing_pages/header/header.component';
 import { FooterComponent } from './landing_pages/footer/footer.component';
+//import {AuthenticationService} from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent,
