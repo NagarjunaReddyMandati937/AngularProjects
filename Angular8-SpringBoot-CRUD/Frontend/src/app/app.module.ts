@@ -19,6 +19,8 @@ import { AwardsComponent } from './awards/awards.component';
 import { TechnologiesComponent } from './technologies/technologies.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SolutionsComponent } from './solutions/solutions.component';
+import { HeaderComponent } from './landing_pages/header/header.component';
+import { FooterComponent } from './landing_pages/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { SolutionsComponent } from './solutions/solutions.component';
     AwardsComponent,
     TechnologiesComponent,
     ContactusComponent,
-    SolutionsComponent
+    SolutionsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
