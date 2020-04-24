@@ -18,13 +18,14 @@ import { UserManagementComponent } from './user_management/user_management.compo
 import { AddUserComponent } from './user_management/add-user/add-user.component';
 import { UpdateUserComponent } from './user_management/update-user/update-user.component';
 import { UserDetailsComponent } from './user_management/user-details/user-details.component';
+import { AuthGuardGuard } from './services/auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'add', component: CreateEmployeeComponent },
-  { path: 'update/:id', component: UpdateEmployeeComponent },
-  { path: 'details/:id', component: EmployeeDetailsComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'employees', component: EmployeeListComponent ,canActivate:[AuthGuardGuard]},
+  { path: 'add', component: CreateEmployeeComponent,canActivate:[AuthGuardGuard] },
+  { path: 'update/:id', component: UpdateEmployeeComponent,canActivate:[AuthGuardGuard] },
+  { path: 'details/:id', component: EmployeeDetailsComponent ,canActivate:[AuthGuardGuard]},
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'aboutus', component: AboutusComponent },
@@ -34,10 +35,10 @@ const routes: Routes = [
   { path: 'awards', component: AwardsComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'solutions', component: SolutionsComponent },
-  { path: 'user_management', component: UserManagementComponent },
-  { path: 'add-user', component: AddUserComponent },
-  { path: 'user-update/:uid', component: UpdateUserComponent },
-  { path: 'user-details/:uid', component: UserDetailsComponent },
+  { path: 'user_management', component: UserManagementComponent,canActivate:[AuthGuardGuard] },
+  { path: 'add-user', component: AddUserComponent ,canActivate:[AuthGuardGuard]},
+  { path: 'user-update/:uid', component: UpdateUserComponent,canActivate:[AuthGuardGuard] },
+  { path: 'user-details/:uid', component: UserDetailsComponent,canActivate:[AuthGuardGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -2,16 +2,16 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-<input type="text" style="width: 1200px;height: 40px;" placeholder="Search" name="search" [(ngModel)]="ser">
-&nbsp;<button type="submit" style="width: 100px;height: 40px;" (click)="onSearch()"
-  class="btn btn-success" data-toggle="tooltip"
-  data-placement="bottom" title="search"><i class="material-icons" style="font-size:36px">search</i></button>
+<input type="text" style="width: 1250px;height: 40px;" placeholder="Search" name="search" [(ngModel)]="ser">
+&nbsp;<button type="submit" style="width: 130px;height: 40px;" (click)="onSearch()" class="btn btn-success"
+  data-toggle="tooltip" data-placement="bottom" title="search"><i class="material-icons"
+    style="font-size:36px">search</i></button>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 style="text-align: center;">Employee List</h2>
   </div>
   <div class="panel-body">
-    <table class="table table-hover">
+    <table class="table table-hover table-bordered">
       <thead>
         <tr>
           <th>UserName</th>
@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees" (click)="employeeDetails(employee.id)">
+        <tr *ngFor="let employee of employees">
           <td>{{employee.username}}</td>
           <td>{{employee.id}}</td>
           <td>{{employee.designation}}</td>
@@ -37,9 +37,8 @@
             <button (click)="updateEmployee(employee.id)" class="btn btn-warning" data-toggle="tooltip"
               data-placement="bottom" title="edit/update" style="margin-left: 10px"><i class="material-icons"
                 style="font-size:24px">edit</i></button>
-            <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-success"
-              style="margin-left: 10px">Details</button> -->
-          </td>
+            <button (click)="employeeDetails(employee.id)" class="btn btn-success"
+              style="margin-left: 10px">Details</button> </td>
         </tr>
       </tbody>
     </table>

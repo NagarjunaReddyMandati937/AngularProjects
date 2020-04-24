@@ -31,13 +31,15 @@
       <a *ngIf="!isLoggedin()" routerLink="login" class="nav-link" routerLinkActive="active">Login</a>
     </li>
     <li class="nav-item">
-      <a *ngIf="isLoggedin()"  routerLink="user_management" class="nav-link" routerLinkActive="active">User_Management</a>
+   <a *ngIf="isLoggedin()" routerLink="user_management" class="nav-link"
+ routerLinkActive="active">User_Management</a>
     </li>
     <li class="nav-item">
       <a *ngIf="isLoggedin()" (click)="onLogout()" class="nav-link">Logout</a>
     </li>
-  </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <h2 style="color:white">{{title}}</h2>
+    </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 style="color:white">{{title}}</h2>
+
 </nav><br><br><br><br><br>

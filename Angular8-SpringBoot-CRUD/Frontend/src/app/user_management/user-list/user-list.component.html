@@ -1,12 +1,13 @@
 <h2>List of Users</h2>
+
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
-<input type="text" style="width: 1200px;height: 40px;" placeholder="Search" name="search" [(ngModel)]="ser">
-&nbsp;<button type="submit" style="width: 100px;height: 40px;" (click)="onSearch()"
-  class="btn btn-success" data-toggle="tooltip"
-  data-placement="bottom" title="search"><i class="material-icons" style="font-size:36px">search</i></button>
+
+<input type="text" style="width: 1250px;height: 40px;" placeholder="Search" name="search" [(ngModel)]="ser">
+&nbsp;<button type="submit" style="width: 130px;height: 40px;" (click)="onSearch()" class="btn btn-success"
+  data-toggle="tooltip" data-placement="bottom" title="search"><i class="material-icons"
+    style="font-size:36px">search</i></button>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 style="text-align: center;">Users List</h2>
@@ -24,20 +25,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users" (click)="userDetails(user.uid)">
+        <tr *ngFor="let user of users">
           <td>{{user.username}}</td>
           <td>{{user.uid}}</td>
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
           <td>{{user.email}}</td>
           <td>
-            <button (click)="deleteUser(user.uid)" class="btn btn-danger" data-toggle="tooltip"
-              data-placement="bottom" title="delete"><i class="material-icons">delete</i></button>
-            <button (click)="updateUser(user.uid)" class="btn btn-warning" data-toggle="tooltip"
-              data-placement="bottom" title="edit/update" style="margin-left: 10px"><i class="material-icons"
+            <button (click)="deleteUser(user.uid)" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom"
+              title="delete"><i class="material-icons">delete</i></button>
+            <button (click)="updateUser(user.uid)" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom"
+              title="edit/update" style="margin-left: 10px"><i class="material-icons"
                 style="font-size:24px">edit</i></button>
-            <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-success"
-              style="margin-left: 10px">Details</button> -->
+            <button (click)="userDetails(user.uid)" class="btn btn-success" style="margin-left: 10px">Details</button>
           </td>
         </tr>
       </tbody>
