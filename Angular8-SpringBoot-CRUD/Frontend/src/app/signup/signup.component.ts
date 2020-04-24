@@ -51,6 +51,8 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
     this.save();
     window.alert('User Account Created');
+    this.router.navigate(['login']);
+    
   }
 
   // gotoList() {

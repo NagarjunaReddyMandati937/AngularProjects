@@ -38,9 +38,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 	
-	@Autowired
-	private UserService uservice;
-	
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
 		return service.findAll();
@@ -59,11 +56,6 @@ public class EmployeeController {
 		return service.save(employee);
 	}
 	
-	@PostMapping("/employees/users")
-	public User createUser(@Valid @RequestBody User user) {
-		return uservice.save(user);
-	}
-
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
 			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {

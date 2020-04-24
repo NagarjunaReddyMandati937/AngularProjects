@@ -14,6 +14,10 @@ import { TechnologiesComponent } from './technologies/technologies.component';
 import { AwardsComponent } from './awards/awards.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SolutionsComponent } from './solutions/solutions.component';
+import { UserManagementComponent } from './user_management/user_management.component';
+import { AddUserComponent } from './user_management/add-user/add-user.component';
+import { UpdateUserComponent } from './user_management/update-user/update-user.component';
+import { UserDetailsComponent } from './user_management/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +34,10 @@ const routes: Routes = [
   { path: 'awards', component: AwardsComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'solutions', component: SolutionsComponent },
+  { path: 'user_management', component: UserManagementComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'user-update/:uid', component: UpdateUserComponent },
+  { path: 'user-details/:uid', component: UserDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

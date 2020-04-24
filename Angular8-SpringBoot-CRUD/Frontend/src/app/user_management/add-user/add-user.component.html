@@ -1,0 +1,49 @@
+<h3>Create User</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" placeholder="firstName" id="firstName" required
+        [(ngModel)]="user.firstName" name="user">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" placeholder="lastName" id="lastName" required [(ngModel)]="user.lastName"
+        name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">E-Mail</label>
+      <input type="text" class="form-control" placeholder="Email" id="email" required [(ngModel)]="user.email"
+        name="email">
+    </div>
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" placeholder="Username" id="username" required [(ngModel)]="user.username"
+        name="username">
+    </div>
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="text" class="form-control" placeholder="Password" id="password" required [(ngModel)]="user.password"
+        name="password">
+    </div>
+    <div class="form-group">
+      <label for="name">Confirm Password</label>
+      <input type="text" class="form-control" placeholder="Confirm Password" id="confirmPassword" required
+        [(ngModel)]="user.confirmPassword" name="confirmPassword">
+    </div>
+    <div class="form-group">
+      <label for="name">Mobile Number</label>
+      <input type="tel" class="form-control" placeholder="Cell" id="cell" required [(ngModel)]="user.cell" name="cell">
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<!-- <div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newEmployee()">Add</button>
+</div> -->

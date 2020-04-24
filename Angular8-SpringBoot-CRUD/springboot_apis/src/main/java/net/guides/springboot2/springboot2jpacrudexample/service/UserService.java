@@ -40,9 +40,9 @@ public class UserService {
         repository.delete(emp);
     }
 
-//	public List<User> findByFirstnameOrLastname(String firstName) {
-//		return repository.findByFirstnameOrLastname(firstName);
-//	}
+	public List<User> findByFirstnameOrLastname(String firstName) {
+		return repository.findByFirstnameOrLastname(firstName);
+	}
 
 
 }

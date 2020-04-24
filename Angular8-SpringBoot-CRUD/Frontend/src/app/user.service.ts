@@ -7,30 +7,30 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/employees';
+  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/users';
 
   constructor(private http: HttpClient) { }
 
-  // getEmployee(id: number): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/${id}`);
-  // }
-  // getSearchedEmployee(employee): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/search?firstName=`+ employee);
-  // }
-
-  createUser(user: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/users`, user);
+  getUsers(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+  getSearchedUsers(user): Observable<any> {
+    return this.http.get(`${this.baseUrl}/search?firstName=`+ user);
   }
 
-  // updateEmployee(id: number, value: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
+  createUser(user: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, user);
+  }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
+  updateUser(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
 
-  // getEmployeesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
-  // }
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
+  getUsersList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 }

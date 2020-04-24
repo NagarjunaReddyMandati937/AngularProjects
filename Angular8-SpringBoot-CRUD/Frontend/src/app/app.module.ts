@@ -21,6 +21,11 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { HeaderComponent } from './landing_pages/header/header.component';
 import { FooterComponent } from './landing_pages/footer/footer.component';
+import { AddUserComponent } from './user_management/add-user/add-user.component';
+import { UpdateUserComponent } from './user_management/update-user/update-user.component';
+import { UserListComponent } from './user_management/user-list/user-list.component';
+import { UserDetailsComponent } from './user_management/user-details/user-details.component';
+import { UserManagementComponent } from './user_management/user_management.component';
 //import {AuthenticationService} from './services/authentication.service';
 @NgModule({
   declarations: [
@@ -40,7 +45,13 @@ import { FooterComponent } from './landing_pages/footer/footer.component';
     ContactusComponent,
     SolutionsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AddUserComponent,
+    UpdateUserComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserManagementComponent,
+    
   ],
   imports: [
     BrowserModule,
