@@ -17,6 +17,12 @@ export class UserService {
   getSearchedUsers(user): Observable<any> {
     return this.http.get(`${this.baseUrl}/search?firstName=`+ user);
   }
+  userAuthentication(username,password):Observable<any>{
+    //let url ='http://localhost:8080/springboot-crud-rest/a/v1/users/login?username='+username+'&password='+password
+    // http://localhost:8080/springboot-crud-rest/a/v1/users/login?username=username&password=password
+    //  return this.http.get(`${this.baseUrl}/login?username=`+username+`&password=`+password`);
+    return this.http.get(this.baseUrl+'/login?username='+username+'&password='+password);
+  }
 
   createUser(user: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, user);
@@ -27,7 +33,8 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${id}`, 
+    { responseType: 'text' });
   }
 
   getUsersList(): Observable<any> {

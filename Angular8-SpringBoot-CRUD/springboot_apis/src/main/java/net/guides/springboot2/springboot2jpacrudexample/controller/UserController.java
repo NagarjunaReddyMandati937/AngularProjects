@@ -28,28 +28,27 @@ import net.guides.springboot2.springboot2jpacrudexample.service.UserService;
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
-	
+
 	@Autowired
 	private UserService uservice;
-	
+
 	@PostMapping("/users")
 	public User createUser(@Valid @RequestBody User user) {
 		return uservice.save(user);
 	}
+
 	@GetMapping("/users")
 	public List<User> getAllEmployees() {
 		return uservice.findAll();
 	}
 
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId)
-			throws ResourceNotFoundException {
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
 		User user = uservice.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 		return ResponseEntity.ok().body(user);
 	}
 
-		
 	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody User userDetails) throws ResourceNotFoundException {
@@ -67,8 +66,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{id}")
-	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId)
-			throws ResourceNotFoundException {
+	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
 		User user = uservice.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
@@ -77,13 +75,17 @@ public class UserController {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
-	
+
 	@GetMapping("users/search")
-	public List searchByFirstnameOrLastname(@RequestParam(name = "firstName") String firstName,
-			Model model) {
+	public List searchByFirstnameOrLastname(@RequestParam(name = "firstName") String firstName, Model model) {
 		List<User> UserSearch = uservice.findByFirstnameOrLastname(firstName);
 		return UserSearch;
 
 	}
 
+	@GetMapping("users/login")
+	public boolean loginCredentials(@RequestParam(name = "username") String username,
+			@RequestParam(name = "password") String password, Model model) {
+		return uservice.findByUserCredentials(username, password);
+	}
 }

@@ -9,10 +9,12 @@ import org.springframework.stereotype.Repository;
 import net.guides.springboot2.springboot2jpacrudexample.model.User;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
-	
+public interface UserRepository extends CrudRepository<User, Long> {
+
 	@Query("select u from  User u where u.firstName = ?1 or u.lastName = ?1 or u.email = ?1 or u.username = ?1 or u.cell = ?1 or u.uid = ?1")
 	List<User> findByFirstnameOrLastname(String firstName);
-	
+
+	@Query("select u from User u where u.username =?1 and u.password = ?2")
+	List<User> findByUsernameAndPassword(String username, String password);
 
 }

@@ -15,34 +15,42 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.UserRepositor
 public class UserService {
 	private UserRepository repository;
 
-    @Autowired
-    public UserService(UserRepository repository) {
-        this.repository = repository;
-    }
+	@Autowired
+	public UserService(UserRepository repository) {
+		this.repository = repository;
+	}
 
-    public List<User> findAll() {
-        return (List<User>) repository.findAll();
-    }
+	public List<User> findAll() {
+		return (List<User>) repository.findAll();
+	}
 
-    public Optional<User> findById(Long id) {
-        return repository.findById(id);
-    }
+	public Optional<User> findById(Long id) {
+		return repository.findById(id);
+	}
 
-    public User save(User emp) {
-        return repository.save(emp);
-    }
+	public User save(User emp) {
+		return repository.save(emp);
+	}
 
-    public void deleteById(Long id) {
-        repository.deleteById(id);
-    }
-    
-    public void delete(User emp) {
-        repository.delete(emp);
-    }
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
+
+	public void delete(User emp) {
+		repository.delete(emp);
+	}
 
 	public List<User> findByFirstnameOrLastname(String firstName) {
 		return repository.findByFirstnameOrLastname(firstName);
 	}
 
-
+	public boolean findByUserCredentials(String username, String password) {
+		
+		List<User> userList = repository.findByUsernameAndPassword(username, password);
+		System.out.println(userList);
+		if (userList.size() > 0) {
+			return true;
+		} else 
+			return false;
+	}
 }
