@@ -55,7 +55,4 @@ export class SignupComponent implements OnInit {
     
   }
 
-  // gotoList() {
-  //   this.router.navigate(['/employees']);
-  // }
 }
