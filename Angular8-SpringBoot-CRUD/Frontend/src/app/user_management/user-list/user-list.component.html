@@ -13,9 +13,10 @@
     <h2 style="text-align: center;">Users List</h2>
   </div>
   <div class="panel-body">
-    <table class="table table-hover">
+    <table class="table table-striped table-bordered">
       <thead>
-        <tr>
+        <tr  style="background-color:black; color:white;">
+          <th>S.No</th>
           <th>UserName</th>
           <th>User Id</th>
           <th>First Name</th>
@@ -25,7 +26,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users; let i=index;">
+          <td>{{i+1}}</td>
           <td>{{user.username}}</td>
           <td>{{user.uid}}</td>
           <td>{{user.firstName}}</td>

@@ -1,7 +1,7 @@
-<h2>Employee Details</h2> 
-
-<hr/>
-<div *ngIf="employee">
+<div class="container-fluid" *ngIf="employee">
+  <h2>Employee Details</h2>
+  <hr />
+  
   <div>
     <label><b>Employee Username: </b></label> {{employee.username}}
   </div>
@@ -19,20 +19,18 @@
   </div>
   <div>
     <label><b>Email Id: </b></label> {{employee.emailId}}
-  </div> 
+  </div>
   <div>
     <label><b>Location </b></label> {{employee.location}}
-  </div> 
+  </div>
   <div>
     <label><b>Cell Number: </b></label> {{employee.cell}}
   </div>
   <div>
     <label><b>Skills: </b></label> {{employee.skills}}
-  </div> 
+  </div>
+  <br>
+  <br>
+  <button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+
 </div>
-
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
-
-
