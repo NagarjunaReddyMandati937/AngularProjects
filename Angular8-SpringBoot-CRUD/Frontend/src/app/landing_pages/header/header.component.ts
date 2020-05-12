@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   
   title = 'Full Stack Web Application Using Rest APIs';
   name = 'N.R Technologis'
-
+  public user = JSON.parse(sessionStorage.getItem('user'));
   constructor(private router:Router,private authService:AuthenticationService) { }
 
   ngOnInit() {
