@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   username = 'SuperAdmin';
-  password = 'nagarjuna1'
+  password = 'nagarjuna1';
 
   constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { }
 
